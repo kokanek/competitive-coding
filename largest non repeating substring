@@ -1,0 +1,20 @@
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLongestSubstring = function(s) {
+    let dict = {};
+    for (let iter = 0; iter < 256; iter++) {
+        dict[iter] = -1;   
+    }
+    var maxLen = 0;
+    var start = -1;
+    for(let iter = 0; iter < s.length ; iter++) {
+        if(dict[s[iter]] > start) 
+            start = dict[s[iter]];
+        dict[s[iter]] = iter;
+        // console.log('iter: ', iter, 'start: ', start);
+        maxLen = Math.max(maxLen, iter - start);
+    }
+    return maxLen;
+};
