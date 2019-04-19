@@ -31,3 +31,30 @@ var lengthOfLongestSubstring = function(s) {
     }
     return max;
 };
+
+// More optimized solution
+var lengthOfLongestSubstring = function(s) {
+    let arr = s.split('');
+    let d = {};
+    let max = 0;
+    var i = 0;
+    var j = 0;
+    
+    while(i <= arr.length-1 && j <= arr.length-1) {
+        let count = 0;
+        for(j = i; j<arr.length; j++) {
+            if(d[arr[j]] === undefined) {
+                // Not found in hashmap, store in hash map and increment count
+                d[arr[j]] = j;
+                count++;
+            } else {
+                // Found in hashmap, move to index next of the last occurrence and clear hashmap
+                i = d[arr[j]]+1;
+                d = {};
+                break;
+            }
+        }
+        max = Math.max(count, max);
+    }
+    return max;
+};
