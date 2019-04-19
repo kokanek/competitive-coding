@@ -2,6 +2,7 @@
  * @param {string} s
  * @return {number}
  */
+
 var lengthOfLongestSubstring = function(s) {
     let dict = {};
     for (let iter = 0; iter < 256; iter++) {
