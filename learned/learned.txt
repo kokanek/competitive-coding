@@ -1,0 +1,2 @@
+Learned about how brew works in mac os
+How ssh command is accessible to the terminal and how openssl is installed in the mac.
